@@ -1,20 +1,25 @@
+
+
 <script>
   export default {
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App'
+        msg: 'Counter is useless',
+        count: 0
       }
     },
     methods: {
-
+      incrementCount() {
+        this.count++;
+      }
     },
   }
 </script>
 
 <template>
-  <div>{{this.msg}}</div>
+  <button @click="incrementCount()">{{ msg }} | {{ count }}</button>
 </template>
 
-<style scoped>
+<style>
 
 </style>
