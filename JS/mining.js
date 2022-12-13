@@ -17,14 +17,14 @@ function updateMiningHTML() {
 //function upgradeMiner(i)
 
 function mineOre(i) {
-    //Implement Automated Mining Once we have Science Added
+    //TODO: Implement Automated Mining Once we have Science Added
     if(data.settingsToggles[0]) {
         if(data.rawResourcesRemaining[i].gt(0)) {
-            data.rawResourcesRemaining[i].sub(1)
-            data.rawResourcesStored[i].add(1)
+            data.rawResourcesRemaining[i] = data.rawResourcesRemaining[i].sub(1)
+            data.rawResourcesStored[i] = data.rawResourcesStored[i].add(1)
         }
     }
     else {
-        data.rawResourcesStored[i].add(1)
+        data.rawResourcesStored[i] = data.rawResourcesStored[i].add(1)
     }
 }
