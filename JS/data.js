@@ -6,7 +6,7 @@ function getDefaultObject() {
         currentTab: 0,
         settingsToggles: [],
         buyAmounts: [],
-        currentUpdate: 'v0.0.0',
+        currentUpdate: 'v0.0.1',
         devSpeed: 1,
     }
 }
@@ -82,7 +82,7 @@ window.onload = function (){
     $.notify('Welcome Back!\nYou were gone for ' + formatTime(diff), 'info')
     changeTab(data.currentTab)
     $.notify('Game Loaded','info')
-    DOMCacheGetOrSet('titleText').innerText = `Manufacturing Inc - v${getDefaultObject().currentUpdate}`
+    DOMCacheGetOrSet('titleText').innerText = `Manufacturing Inc - ${getDefaultObject().currentUpdate}`
 }
 //full reset
 function fullReset(){
