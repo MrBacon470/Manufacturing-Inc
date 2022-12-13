@@ -4,7 +4,9 @@ function getDefaultObject() {
     return {
         time: Date.now(),
         currentTab: 0,
-        settingsToggles: [],
+        rawResourcesRemaining: new Array(4).fill(D(8e5)),
+        rawResourcesStored: new Array(4).fill(D(0)),
+        settingsToggles: [false],
         buyAmounts: [],
         currentUpdate: 'v0.0.1',
         devSpeed: 1,
@@ -77,7 +79,7 @@ window.setInterval(function(){
 }, 30000);
 window.onload = function (){
     load()
-    generateEventHandlers()
+    generateHTMLAndHandlers()
     diff = (Date.now()-data.time)*data.devSpeed/1000
     $.notify('Welcome Back!\nYou were gone for ' + formatTime(diff), 'info')
     changeTab(data.currentTab)
