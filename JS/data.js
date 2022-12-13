@@ -6,6 +6,7 @@ function getDefaultObject() {
         currentTab: 0,
         rawResourcesRemaining: new Array(4).fill(D(8e5)),
         rawResourcesStored: new Array(4).fill(D(0)),
+        smeltedResourcesStored: new Array(4).fill(D(0)),
         settingsToggles: [false],
         buyAmounts: [],
         currentUpdate: 'v0.0.1',

@@ -7,4 +7,7 @@ function updateHTML() {
     else if(data.currentTab === 1) {
         updateMiningHTML()
     }
+    else if(data.currentTab === 2) {
+        updateSmeltingHTML()
+    }
 }

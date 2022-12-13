@@ -8,7 +8,7 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < tabIDs.length; i++) 
         DOMCacheGetOrSet(`tabBut${i}`).addEventListener('click', () => { changeTab(i) })
     //Add Resource Holders for Raw Resources
-    addResourceHolder('miningTab',4,'rawResource')
+    addHTML('miningTab',4,'rawResource',0)
     
     let imgSrcs = ['ironOre.png','copperOre.png','coal.png','stone.png']
     //Update Raw Resource Image Sources
@@ -17,7 +17,13 @@ function generateHTMLAndHandlers() {
     //Add Raw Resource Button Events
     for(let i = 0; i < data.rawResourcesStored.length; i++)
         DOMCacheGetOrSet(`rawResourceButton${i}`).addEventListener('click',() => mineOre(i))
+    //Add Smelted Resource Holders    
+    addHTML('smeltingTab',3,'smeltedResource',1)
     
+    for(let i = 0; i < smeltedResourceNames[i].length-1; i++)
+        DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
+
+
     console.log('Initialized Successfully')
 }
 
@@ -35,17 +41,29 @@ function changeTab(i) {
     }
 }
 
-function addResourceHolder(target,amount,name) {
+function addHTML(target,amount,name,id) {
     let htmlStr = ``
-        
-    for(let i = 0; i < amount; i++) {
-        htmlStr = `<div id="${name}Holder${i}" class=resourceHolder>
-        <img id="${name}Img${i}">
-        <p id="${name}Text${i}"></p>
-        <button id="${name}Button${i}"></button>
-        <button id="${name}UpButton${i}"></button>
-     </div>`
-        DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
+    if(id === 0) {
+        for(let i = 0; i < amount; i++) {
+            htmlStr = `<div id="${name}Holder${i}" class=resourceHolder>
+            <img id="${name}Img${i}">
+            <p id="${name}Text${i}"></p>
+            <button id="${name}Button${i}"></button>
+            <button id="${name}UpButton${i}"></button>
+         </div>`
+            DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
+        }
+    } 
+    else if(id === 1) {
+        for(let i = 0; i < amount; i++) {
+            htmlStr = 
+            `<div class="resourceHolder">
+            <img id="${name}Img${i}">
+            <p id="${name}Text${i}"></p>
+            <button id="${name}Button${i}"></button>
+            </div>`
+            DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
+        }
     }
 }
 
