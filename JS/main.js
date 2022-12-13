@@ -20,7 +20,7 @@ function generateHTMLAndHandlers() {
     //Add Smelted Resource Holders    
     addHTML('smeltingTab',3,'smeltedResource',1)
     
-    for(let i = 0; i < smeltedResourceNames[i].length-1; i++)
+    for(let i = 0; i < 3; i++)
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
 
