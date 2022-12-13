@@ -6,6 +6,7 @@
 :root {
     --orange: #e9a200;
     --gray: #999999;
+    --white: #ffe9c4;
     --green: #65be67;
     --red: #d74444;
     --blue: #4481d7;
@@ -72,6 +73,21 @@ button:active {
 }
 
 .tabHolder {padding:1vw 1vh 1vw 1vh;}
+
+.resourceHolder {
+    display: flex;
+    flex-direction: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin:.5vw .5vh .5vw .5vh;
+}
+.resourceHoler button, .resourceHolder img, .resourceHolder p {
+    margin-right: 0.5vw;
+}
+.resourceHolder img {
+    width: 2em;
+    height: 2em;
+}
 
 /*ID Styling*/
 
