@@ -82,6 +82,7 @@ window.onload = function (){
     $.notify('Welcome Back!\nYou were gone for ' + formatTime(diff), 'info')
     changeTab(data.currentTab)
     $.notify('Game Loaded','info')
+    DOMCacheGetOrSet('titleText').innerText = `Manufacturing Inc - v${getDefaultObject().currentUpdate}`
 }
 //full reset
 function fullReset(){

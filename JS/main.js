@@ -1,6 +1,8 @@
 let diff = 0;
 
 function generateEventHandlers() {
+    for(let i = 0; i < tabIDs.length; i++) 
+        DOMCacheGetOrSet(`tabBut${i}`).addEventListener('click', () => { changeTab(i) })
     console.log('Event Handlers Init...')
 }
 
@@ -10,7 +12,7 @@ function mainLoop() {
     updateHTML()
     data.time = Date.now()
 }
-const tabIDs = ['rawres','smelting','manufacturing','settings']
+const tabIDs = ['settings','mining','smelting','manufacturing','lab']
 function changeTab(i) {
     data.currentTab = i
     for(let i = 0; i < tabIDs.length; i++) {
