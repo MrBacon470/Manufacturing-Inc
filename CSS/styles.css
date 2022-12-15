@@ -116,7 +116,7 @@ button:active {
     border: 2px solid var(--white);
     display: flex;
     width:75%;
-    height:50em;
+    height:30em;
     overflow: scroll;
 }
 
@@ -136,17 +136,17 @@ button:active {
 .notifyjs-bootstrap-error {
 	color: whitesmoke;
 	background-color: #bf352d;
-	border-color: #9e160f;
+	border-color: var(--red);
 }
 .notifyjs-bootstrap-success {
 	color: whitesmoke;
 	background-color: #1eb93a;
-	border-color: #0c8021;
+	border-color: var(--green);
 }
 .notifyjs-bootstrap-info {
 	color: whitesmoke;
 	background-color: #3b8dff;
-	border-color: #006aff;
+	border-color: var(--blue);
 }
 .notifyjs-bootstrap-warn {
 	color: whitesmoke;
