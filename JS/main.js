@@ -2,8 +2,8 @@ let diff = 0;
 
 function generateHTMLAndHandlers() {
     //Settings Toggle Button Events
-    for(let i = 0; i < data.settingsToggles.length; i++)
-        DOMCacheGetOrSet(`setTog${i}`).addEventListener('click',() => {settingsToggle(i)})
+    for(let i = 0; i < getDefaultObject().settingsToggles.length; i++) 
+        DOMCacheGetOrSet(`setToggle`+i).addEventListener('click',() => {settingsToggle(i)})
     //Tab Button Events
     for(let i = 0; i < tabIDs.length; i++) 
         DOMCacheGetOrSet(`tabBut${i}`).addEventListener('click', () => { changeTab(i) })
@@ -15,7 +15,7 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < imgSrcs.length; i++)
         DOMCacheGetOrSet(`rawResourceImg${i}`).src = `Imgs/${imgSrcs[i]}`
     //Add Raw Resource Button Events
-    for(let i = 0; i < data.rawResourcesStored.length; i++)
+    for(let i = 0; i < getDefaultObject().rawResourcesStored.length; i++)
         DOMCacheGetOrSet(`rawResourceButton${i}`).addEventListener('click',() => mineOre(i))
     //Add Smelted Resource Holders    
     addHTML('smeltingTab',3,'smeltedResource',1)
