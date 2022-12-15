@@ -67,18 +67,25 @@ function addHTML(target,amount,name,id) {
         }
     }
     else if(id === 2) {
-        for(let i = 0; i < amount; i++) {
-            htmlStr = 
-            `<div id="mH${i}" class="manufactoryHolder">
-            <p id="mHText${i}">Item Name</p>
-            <img id="mHImg${i}">
-            <button id="mhButton${i}">Craft Item</button>
-            <div class="progressBarBorder">
-                <div id="mHBar${i}" class="progressBar">Time Left: 0.0s</div>
-            </div>
-            </div>`
+        let j = 0, count = 0;
+        for(let i = 0; i < amount / 5; i++) {
+            htmlStr = `<div id="mHRow${i}" class="flexRow"></div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
+            while(j < amount && count < 5) {
+                htmlStr = 
+                `<div id="mH${j}" class="manufactoryHolder">
+                <p id="mHText${j}">Item Name</p>
+                <img id="mHImg${j}">
+                <button id="mhButton${j}">Craft Item</button>
+                <div class="progressBarBorder">
+                    <div id="mHBar${j}" class="progressBar">Time Left: 0.0s</div>
+                </div>
+                </div>`
+                DOMCacheGetOrSet(`mHRow${i}`).insertAdjacentHTML('beforeend',htmlStr)
+                count++; j++;
+            }
         }
+        
     }
 }
 
