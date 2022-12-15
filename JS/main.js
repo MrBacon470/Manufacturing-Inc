@@ -3,7 +3,7 @@ let diff = 0;
 function generateHTMLAndHandlers() {
     //Settings Toggle Button Events
     for(let i = 0; i < getDefaultObject().settingsToggles.length; i++) 
-        DOMCacheGetOrSet(`setToggle`+i).addEventListener('click',() => {settingsToggle(i)})
+        DOMCacheGetOrSet(`setToggle${i}`).addEventListener('click',() => {settingsToggle(i)})
     //Tab Button Events
     for(let i = 0; i < tabIDs.length; i++) 
         DOMCacheGetOrSet(`tabBut${i}`).addEventListener('click', () => { changeTab(i) })
@@ -23,6 +23,7 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < 3; i++)
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
+    addHTML('manufactoriesHolder',50,'mH',2)
 
     console.log('Initialized Successfully')
 }
@@ -61,6 +62,20 @@ function addHTML(target,amount,name,id) {
             <img id="${name}Img${i}">
             <p id="${name}Text${i}"></p>
             <button id="${name}Button${i}"></button>
+            </div>`
+            DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
+        }
+    }
+    else if(id === 2) {
+        for(let i = 0; i < amount; i++) {
+            htmlStr = 
+            `<div id="mH${i}" class="manufactoryHolder">
+            <p id="mHText${i}">Item Name</p>
+            <img id="mHImg${i}">
+            <button id="mhButton${i}">Craft Item</button>
+            <div class="progressBarBorder">
+                <div id="mHBar${i}" class="progressBar">Time Left: 0.0s</div>
+            </div>
             </div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
         }

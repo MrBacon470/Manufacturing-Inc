@@ -84,16 +84,42 @@ button:active {
 .resourceHolder button, .resourceHolder img, .resourceHolder p {
     margin-right: 1vw;
 }
-.resourceHolder img {
+.resourceHolder img, .manufactoryHolder img {
     width: 2em;
     height: 2em;
 }
+
+.manufactoryHolder {
+    border: 2px solid var(--orange);
+    width: 10em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:.5vw .5vh .5vw .5vh;
+    padding: 1vw 1vh 1vw 1vh;
+}
+.manufactoryHolder button, .manufactoryHolder img, .manufactoryHolder p, .manufactoryHolder div {
+    margin-bottom: 1vh;
+}
+
+.progressBarBorder {border:2px solid var(--orange); height:1em;width: 100%; margin:0%;}
+.progressBar {background-color: var(--orange); height:100%; font-size: 80%;color: whitesmoke; margin:0%;text-align: center;}
 
 /*ID Styling*/
 
 #navBar button, #settingsButtonHolder button {margin-left: 0.5em; margin-right: 0.5em;}
 
 #promptInput {background-color: #383738; border: 2px solid; border-radius: 2px;}
+
+#manufactoriesHolder {
+    border: 2px solid var(--white);
+    display: flex;
+    width:75%;
+    height:50em;
+    overflow: scroll;
+}
+
 
 /*Notify Styling*/
 .notifyjs-bootstrap-base {
