@@ -25,8 +25,10 @@ function generateHTMLAndHandlers() {
 
     addHTML('manufactoriesHolder',itemNames.length,'mH',2)
     for(let i = 0; i < itemNames.length; i++) {
-        DOMCacheGetOrSet(`mHTitle${i}`).innerHTML = itemNames[i]
+        DOMCacheGetOrSet(`mHTitle${i}`).innerHTML = `${itemNames[i]} <br>(0 | Queued: 0)`
     }
+    for(let i = 0; i < itemCraftCosts.length; i++) 
+        DOMCacheGetOrSet(`mHCostText${i}`).innerHTML = `${itemCraftCosts[i]}`
 
     console.log('Initialized Successfully')
 }

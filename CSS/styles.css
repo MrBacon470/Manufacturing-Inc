@@ -91,8 +91,8 @@ button:active {
 
 .manufactoryHolder {
     border: 2px solid var(--orange);
-    height: 13em;
-    width: 10em;
+    height: 18em;
+    min-width: 10em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -102,7 +102,7 @@ button:active {
     padding: 1vh 1vw 1vh 1vw;
 }
 .manufactoryHolder button, .manufactoryHolder img, .manufactoryHolder p, .manufactoryHolder div {
-    margin-bottom: 1vh; margin-top: 0%;
+    margin-bottom: 1vh; margin-top: 0%; text-align: center;
 }
 
 .progressBarBorder {border:2px solid var(--orange); height:1em;width: 100%; margin:0%;}
