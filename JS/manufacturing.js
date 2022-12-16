@@ -1,0 +1,1 @@
+const itemNames = ['Iron Gear','Copper Wire','']

@@ -23,7 +23,10 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < 3; i++)
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
-    addHTML('manufactoriesHolder',50,'mH',2)
+    addHTML('manufactoriesHolder',itemNames.length,'mH',2)
+    for(let i = 0; i < itemNames.length; i++) {
+        DOMCacheGetOrSet(`mHTitle${i}`).innerHTML = itemNames[i]
+    }
 
     console.log('Initialized Successfully')
 }
@@ -67,22 +70,23 @@ function addHTML(target,amount,name,id) {
         }
     }
     else if(id === 2) {
-        let j = 0, count = 0;
         for(let i = 0; i < amount / 5; i++) {
-            htmlStr = `<div id="mHRow${i}" class="flexRow"></div>`
+            htmlStr = `<div id="mHRow${i}" class="manufactoryRow"></div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
-            while(j < amount && count < 5) {
+            for(let j = 0; j < 5; j++) {
+                if(j + i*5 >= amount) break
                 htmlStr = 
-                `<div id="mH${j}" class="manufactoryHolder">
-                <p id="mHText${j}">Item Name</p>
-                <img id="mHImg${j}">
-                <button id="mhButton${j}">Craft Item</button>
+                `<div id="mH${j+i*5}" class="manufactoryHolder">
+                <p id="mHTitle${j+i*5}">Item Name</p>
+                <img id="mHImg${j+i*5}">
+                <p id="mHCostText${j+i*5}">Item Costs</p>
+                <button id="mhButton${j+i*5}">Craft Item</button>
                 <div class="progressBarBorder">
-                    <div id="mHBar${j}" class="progressBar">Time Left: 0.0s</div>
+                    <div id="mHBar${j+i*5}" class="progressBar">Time Left: 0.0s</div>
+                <button id="mHToggle${j+i*5}">Automated Production: ON</button>
                 </div>
                 </div>`
                 DOMCacheGetOrSet(`mHRow${i}`).insertAdjacentHTML('beforeend',htmlStr)
-                count++; j++;
             }
         }
         

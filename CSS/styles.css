@@ -91,20 +91,30 @@ button:active {
 
 .manufactoryHolder {
     border: 2px solid var(--orange);
+    height: 13em;
     width: 10em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    margin:.5vw .5vh .5vw .5vh;
-    padding: 1vw 1vh 1vw 1vh;
+    margin-left: .5vw;
+    margin-right: .5vw;
+    padding: 1vh 1vw 1vh 1vw;
 }
 .manufactoryHolder button, .manufactoryHolder img, .manufactoryHolder p, .manufactoryHolder div {
-    margin-bottom: 1vh;
+    margin-bottom: 1vh; margin-top: 0%;
 }
 
 .progressBarBorder {border:2px solid var(--orange); height:1em;width: 100%; margin:0%;}
 .progressBar {background-color: var(--orange); height:100%; font-size: 80%;color: whitesmoke; margin:0%;text-align: center;}
+
+.manufactoryRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:.5vw .5vh .5vw .5vh;
+}
 
 /*ID Styling*/
 
@@ -115,6 +125,10 @@ button:active {
 #manufactoriesHolder {
     border: 2px solid var(--white);
     display: flex;
+    padding:2em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     width:75%;
     height:30em;
     overflow: scroll;
