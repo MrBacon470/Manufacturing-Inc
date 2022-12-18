@@ -116,6 +116,13 @@ button:active {
     margin:.5vw .5vh .5vw .5vh;
 }
 
+.scienceHolder {
+    display: flex;
+    flex-direction: col;
+    justify-content: center;
+    align-items: center;
+}
+
 /*ID Styling*/
 
 #navBar button, #settingsButtonHolder button {margin-left: 0.5em; margin-right: 0.5em;}
