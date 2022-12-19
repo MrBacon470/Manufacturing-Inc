@@ -1,30 +1,31 @@
 const dataCardNames = ['Automation Data','Logistics Data','Chemical Data','Utilization Data','Productivity Data','Rocketry Data']
 const dataCardColors = ['--red','--green','--blue','--yellow','--purple','--white2']
 //In the Future Add the Science Packs from SE (Biological, Material, Astronomical, Energy & Deep Space I-IV)
+//Maybe also Advanced, Singularity and Optimization from K2
 const researchObjs = [
     {
         name: 'Automation I',
-        desc: 'The first tier of automating boring tasks',
+        desc: 'The Core Research and the point of this',
         cost: {aD: D(10), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
         reqs: [],
     },
     {
-        name: 'Resource Extraction I',
+        name: 'Extraction I',
         desc: 'Unlock the Mk1 electric miner',
         cost: {aD: D(25), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: ['Automation I'],
+        reqs: [0],
     },
     {
         name: 'Electronics',
         desc: 'Unlocks crude basic circuitry',
         cost: {aD: D(25), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: ['Automation I'],
+        reqs: [0],
     },
     {
         name: 'Logistical Data Procurement',
         desc: 'A new type of data for new tech',
         cost: {aD: D(25), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: ['Automation I','Electronics'],
+        reqs: [0,2],
     },
 ]
 
@@ -35,7 +36,7 @@ function generateResearchTree() {
         for(let j = 0; j < 5; j++) {
             if(j + i*5 >= researchObjs.length) break
             htmlStr = 
-            `<div id="researchHold" class="researchHolder">
+            `<div id="researchHold${j}" class="researchHolder">
             <h4 id="researchTitleText${j}" style="text-align:center">Research Name</h4>
             <p id="researchDescText${j}" style="text-align:center">Research Description</p>
             <p id="researchCostText${j}" style="text-align:center">Cost :D</p>
@@ -55,5 +56,40 @@ function generateResearchTree() {
         DOMCacheGetOrSet(`researchTitleText${i}`).innerText = researchObjs[i].name
         DOMCacheGetOrSet(`researchDescText${i}`).innerText = researchObjs[i].desc
         DOMCacheGetOrSet(`researchCostText${i}`).innerHTML = costString
+        DOMCacheGetOrSet(`researchButton${i}`).addEventListener('click',() => {researchItem()})
     }
+}
+
+function updateScienceHTML() {
+    for(let i = 0; i < researchObjs.length; i++) {
+        //Check that all Pre-Requirements to Display research are unlocked
+        let preReqsUnlocked = true 
+        let purchasable = false
+        if(researchObjs[i].cost.aD.lte(data.scienceAmounts[0]) && researchObjs[i].cost.lD.lte(data.scienceAmounts[1]) && researchObjs[i].cost.cD.lte(data.scienceAmounts[2])
+        && researchObjs[i].cost.uD.lte(data.scienceAmounts[3]) && researchObjs[i].cost.pD.lte(data.scienceAmounts[4]) && researchObjs[i].cost.rD.lte(data.scienceAmounts[5]))
+            purchasable = true
+        for(let j = 0; j < researchObjs[i].reqs.length; j++)
+            if(!data.researchedItem[researchObjs[i].reqs[j]]) preReqsUnlocked = false
+        
+        DOMCacheGetOrSet(`researchHold${i}`).style.display = preReqsUnlocked ? 'flex' : 'none'
+        DOMCacheGetOrSet(`researchHold${i}`).style.border = data.researchedItem[i] ? '2px solid var(--blue)' : '2px solid var(--red)'
+        //Only Visually Update is Container is Displayed
+        if(preReqsUnlocked) {
+            DOMCacheGetOrSet(`researchButton${i}`).classList = purchasable ? 'greenButton' : 'redButton'
+            DOMCacheGetOrSet(`researchButton${i}`).style.display = data.researchedItem[i] ? 'none' : 'inline'
+        }
+    }
+}
+
+function researchItem(i) {
+    if(researchObjs[i].cost.aD.lte(data.scienceAmounts[0]) && researchObjs[i].cost.lD.lte(data.scienceAmounts[1]) && researchObjs[i].cost.cD.lte(data.scienceAmounts[2])
+    && researchObjs[i].cost.uD.lte(data.scienceAmounts[3]) && researchObjs[i].cost.pD.lte(data.scienceAmounts[4]) && researchObjs[i].cost.rD.lte(data.scienceAmounts[5])) {
+        data.scienceAmounts[0] = data.scienceAmounts[0].sub(researchObjs[i].cost.aD)
+        data.scienceAmounts[1] = data.scienceAmounts[1].sub(researchObjs[i].cost.lD)
+        data.scienceAmounts[2] = data.scienceAmounts[2].sub(researchObjs[i].cost.cD)
+        data.scienceAmounts[3] = data.scienceAmounts[3].sub(researchObjs[i].cost.uD)
+        data.scienceAmounts[4] = data.scienceAmounts[4].sub(researchObjs[i].cost.pD)
+        data.scienceAmounts[5] = data.scienceAmounts[5].sub(researchObjs[i].cost.rD)
+        data.researchedItem[i] = true
+    } else return
 }

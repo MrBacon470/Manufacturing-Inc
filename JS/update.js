@@ -16,4 +16,7 @@ function updateHTML() {
     else if(data.currentTab === 3) {
         updateManufacturingHTML()
     }
+    else if(data.currentTab === 4) {
+        updateScienceHTML()
+    }
 }
