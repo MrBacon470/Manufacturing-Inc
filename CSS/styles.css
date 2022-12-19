@@ -10,11 +10,14 @@
     --green: #65be67;
     --red: #d74444;
     --blue: #4481d7;
+    --purple: #a144d7;
+    --yellow: #d7d744;
+    --white2: #f5f5f5;
 }
 
 * {
     background-color: #383738;
-    color: #ffe9c4;
+    color: var(--orange);
     font-family: 'Source Code Pro';
     align-items: center;
     margin-top:1vh;
@@ -84,7 +87,7 @@ button:active {
 .resourceHolder button, .resourceHolder img, .resourceHolder p {
     margin-right: 1vw;
 }
-.resourceHolder img, .manufactoryHolder img {
+.resourceHolder img, .manufactoryHolder img, .scienceHolder img {
     width: 2em;
     height: 2em;
 }
@@ -116,12 +119,7 @@ button:active {
     margin:.5vw .5vh .5vw .5vh;
 }
 
-.scienceHolder {
-    display: flex;
-    flex-direction: col;
-    justify-content: center;
-    align-items: center;
-}
+.scienceHolder {border: 2px solid var(--orange);padding:.5em;}
 
 /*ID Styling*/
 
@@ -146,6 +144,12 @@ button:active {
     margin-right: 1vw;
 }
 
+#scienceRow {align-items: center;justify-content: center;align-self: center;}
+
+#scienceRow .scienceHolder {
+    margin-left: .5vw;
+    margin-right: .5vw;
+}
 
 /*Notify Styling*/
 .notifyjs-bootstrap-base {

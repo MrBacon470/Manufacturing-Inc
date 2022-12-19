@@ -29,6 +29,11 @@ function generateHTMLAndHandlers() {
     }
     for(let i = 0; i < itemCraftCosts.length; i++) 
         DOMCacheGetOrSet(`mHCostText${i}`).innerHTML = `${itemCraftCosts[i]}`
+    
+    addHTML('scienceRow',dataCardNames.length,'',3)
+    for(let i = 0; i < dataCardNames.length; i++) {
+        DOMCacheGetOrSet(`scienceTitle${i}`).innerText = `${dataCardNames[i]}`
+    }
 
     console.log('Initialized Successfully')
 }
@@ -92,6 +97,16 @@ function addHTML(target,amount,name,id) {
             }
         }
         
+    }
+    else if(id === 3) {
+        for(let i = 0; i < amount; i++) {
+            htmlStr = `<div id="scienceHolder${i}" class="scienceHolder flexCol">
+                <img id="scienceImg${i}">
+                <h3 id="scienceTitle${i}" style="color:var(${dataCardColors[i]})">Automation Data</h3>
+                <p id="scienceText${i}">Total: 0.00</p>
+            </div>`
+            DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
+        }
     }
 }
 

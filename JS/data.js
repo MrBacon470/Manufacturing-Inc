@@ -13,7 +13,7 @@ function getDefaultObject() {
         manufacturingItemTime: new Array(12).fill(0),
         settingsToggles: [false],
         buyAmounts: [],
-        currentUpdate: 'v0.0.1',
+        currentUpdate: 'v0.0.3',
         devSpeed: 1,
     }
 }
