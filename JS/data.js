@@ -11,6 +11,7 @@ function getDefaultObject() {
         manufacturingItem: new Array(12).fill(false),
         manufacturedItemQueue: new Array(12).fill(D(0)),
         manufacturingItemTime: new Array(12).fill(0),
+        scienceAmounts: new Array(6).fill(D(0)),
         settingsToggles: [false],
         buyAmounts: [],
         currentUpdate: 'v0.0.3',

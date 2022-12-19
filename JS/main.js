@@ -35,6 +35,8 @@ function generateHTMLAndHandlers() {
         DOMCacheGetOrSet(`scienceTitle${i}`).innerText = `${dataCardNames[i]}`
     }
 
+    generateResearchTree()
+
     console.log('Initialized Successfully')
 }
 

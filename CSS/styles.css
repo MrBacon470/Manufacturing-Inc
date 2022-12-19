@@ -121,6 +121,19 @@ button:active {
 
 .scienceHolder {border: 2px solid var(--orange);padding:.5em;}
 
+.researchHolder {
+    border: 2px solid var(--orange);
+    max-width: 12em;
+    height: 16em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: .5vw;
+    margin-right: .5vw;
+    padding: 1vh 1vw 1vh 1vw;
+}
+
 /*ID Styling*/
 
 #navBar button, #settingsButtonHolder button {margin-left: 0.5em; margin-right: 0.5em;}
@@ -149,6 +162,10 @@ button:active {
 #scienceRow .scienceHolder {
     margin-left: .5vw;
     margin-right: .5vw;
+}
+
+#researchTreeHolder {
+    border: 2px solid var(--white)
 }
 
 /*Notify Styling*/
