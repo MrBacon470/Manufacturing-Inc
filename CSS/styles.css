@@ -165,7 +165,10 @@ button:active {
 }
 
 #researchTreeHolder {
-    border: 2px solid var(--white)
+    border: 2px solid var(--white);
+    height: 37em;
+    overflow: scroll;
+    padding:.25em;
 }
 
 /*Notify Styling*/

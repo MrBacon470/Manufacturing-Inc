@@ -10,22 +10,41 @@ const researchObjs = [
         reqs: [],
     },
     {
+        name: 'Steel Processing',
+        desc: 'Unlock the ability to process Steel',
+        cost: {aD: D(50), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
+        reqs: [],
+    },
+    {
+        name: 'Logistics Data',
+        desc: 'A new type of data for new tech',
+        cost: {aD: D(75), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
+        reqs: [],
+    },
+    {
         name: 'Extraction I',
         desc: 'Unlock the Mk1 electric miner',
         cost: {aD: D(25), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
         reqs: [0],
     },
+    
     {
-        name: 'Electronics',
-        desc: 'Unlocks crude basic circuitry',
-        cost: {aD: D(25), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
+        name: 'Automated Material Processing',
+        desc: 'Automate smelting materials slowly',
+        cost: {aD: D(50), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
         reqs: [0],
     },
     {
-        name: 'Logistical Data Procurement',
-        desc: 'A new type of data for new tech',
-        cost: {aD: D(25), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: [0,2],
+        name: 'Electronics',
+        desc: 'Unlocks crude basic circuitry',
+        cost: {aD: D(75), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
+        reqs: [0],
+    },
+    {
+        name: 'Automation II',
+        desc: 'More Advanced Autonomous Tech',
+        cost: {aD: D(100), lD: D(25), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
+        reqs: [0,3],
     },
 ]
 
@@ -36,11 +55,11 @@ function generateResearchTree() {
         for(let j = 0; j < 5; j++) {
             if(j + i*5 >= researchObjs.length) break
             htmlStr = 
-            `<div id="researchHold${j}" class="researchHolder">
-            <h4 id="researchTitleText${j}" style="text-align:center">Research Name</h4>
-            <p id="researchDescText${j}" style="text-align:center">Research Description</p>
-            <p id="researchCostText${j}" style="text-align:center">Cost :D</p>
-            <button id="researchButton${j}">Research This</button>
+            `<div id="researchHold${j+i*5}" class="researchHolder">
+            <h4 id="researchTitleText${j+i*5}" style="text-align:center">Research Name</h4>
+            <p id="researchDescText${j+i*5}" style="text-align:center">Research Description</p>
+            <p id="researchCostText${j+i*5}" style="text-align:center">Cost :D</p>
+            <button id="researchButton${j+i*5}">Research This</button>
             </div>`
             DOMCacheGetOrSet(`rRow${i}`).insertAdjacentHTML('beforeend',htmlStr)
         }
@@ -57,6 +76,17 @@ function generateResearchTree() {
         DOMCacheGetOrSet(`researchDescText${i}`).innerText = researchObjs[i].desc
         DOMCacheGetOrSet(`researchCostText${i}`).innerHTML = costString
         DOMCacheGetOrSet(`researchButton${i}`).addEventListener('click',() => {researchItem()})
+        DOMCacheGetOrSet(`researchHold${i}`).style.border = '2px solid var(--red)'
+        if(researchObjs[i].cost.lD.gt(0))
+            DOMCacheGetOrSet(`researchHold${i}`).style.border = '2px solid var(--green)'
+        if(researchObjs[i].cost.cD.gt(0))
+            DOMCacheGetOrSet(`researchHold${i}`).style.border = '2px solid var(--blue)'
+        if(researchObjs[i].cost.uD.gt(0))
+            DOMCacheGetOrSet(`researchHold${i}`).style.border = '2px solid var(--yellow)'
+        if(researchObjs[i].cost.pD.gt(0))
+            DOMCacheGetOrSet(`researchHold${i}`).style.border = '2px solid var(--purple)'
+        if(researchObjs[i].cost.rD.gt(0))
+            DOMCacheGetOrSet(`researchHold${i}`).style.border = '2px solid var(--white2)'
     }
 }
 
@@ -72,7 +102,6 @@ function updateScienceHTML() {
             if(!data.researchedItem[researchObjs[i].reqs[j]]) preReqsUnlocked = false
         
         DOMCacheGetOrSet(`researchHold${i}`).style.display = preReqsUnlocked ? 'flex' : 'none'
-        DOMCacheGetOrSet(`researchHold${i}`).style.border = data.researchedItem[i] ? '2px solid var(--blue)' : '2px solid var(--red)'
         //Only Visually Update is Container is Displayed
         if(preReqsUnlocked) {
             DOMCacheGetOrSet(`researchButton${i}`).classList = purchasable ? 'greenButton' : 'redButton'
