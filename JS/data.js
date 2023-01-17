@@ -12,7 +12,7 @@ function getDefaultObject() {
         manufacturedItemQueue: new Array(12).fill(D(0)),
         manufacturingItemTime: new Array(12).fill(0),
         scienceAmounts: new Array(6).fill(D(0)),
-        researchedItem: new Array(3).fill(false),
+        researchedItem: new Array(1).fill(false),
         settingsToggles: [false],
         buyAmounts: [],
         currentUpdate: 'v0.0.3',
