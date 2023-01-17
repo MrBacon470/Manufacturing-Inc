@@ -1,4 +1,4 @@
-const rawResourceNames = ['Iron Ore','Copper Ore','Coal','Stone']
+const rawResourceNames = ['Hematite','Chalcopyrite','Coal','Stone']
 const rawResourceIDs = ['rawResourceText','rawResourceButton','rawResourceUpButton']
 
 const smeltedResourceNames = ['Iron Ingot','Copper Ingot','Stone Brick','Steel Ingot']

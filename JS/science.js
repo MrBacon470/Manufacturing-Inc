@@ -9,43 +9,6 @@ const researchObjs = [
         cost: {aD: D(10), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
         reqs: [],
     },
-    {
-        name: 'Steel Processing',
-        desc: 'Unlock the ability to process Steel',
-        cost: {aD: D(50), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: [],
-    },
-    {
-        name: 'Logistics Data',
-        desc: 'A new type of data for new tech',
-        cost: {aD: D(75), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: [],
-    },
-    {
-        name: 'Extraction I',
-        desc: 'Unlock the Mk1 electric miner',
-        cost: {aD: D(25), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: [0],
-    },
-    
-    {
-        name: 'Automated Material Processing',
-        desc: 'Automate smelting materials slowly',
-        cost: {aD: D(50), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: [0],
-    },
-    {
-        name: 'Electronics',
-        desc: 'Unlocks crude basic circuitry',
-        cost: {aD: D(75), lD: D(0), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: [0],
-    },
-    {
-        name: 'Automation II',
-        desc: 'More Advanced Autonomous Tech',
-        cost: {aD: D(100), lD: D(25), cD: D(0), uD: D(0), pD: D(0), rD: D(0)},
-        reqs: [0,3],
-    },
 ]
 
 function generateResearchTree() {

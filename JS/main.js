@@ -8,7 +8,7 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < tabIDs.length; i++) 
         DOMCacheGetOrSet(`tabBut${i}`).addEventListener('click', () => { changeTab(i) })
     //Add Resource Holders for Raw Resources
-    addHTML('miningTab',4,'rawResource',0)
+    addHTML('miningHolder',4,'rawResource',0)
     
     let imgSrcs = ['ironOre.png','copperOre.png','coal.png','stone.png']
     //Update Raw Resource Image Sources
@@ -18,7 +18,7 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < getDefaultObject().rawResourcesStored.length; i++)
         DOMCacheGetOrSet(`rawResourceButton${i}`).addEventListener('click',() => mineOre(i))
     //Add Smelted Resource Holders    
-    addHTML('smeltingTab',3,'smeltedResource',1)
+    addHTML('smeltingHolder',3,'smeltedResource',1)
     
     for(let i = 0; i < 3; i++)
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
@@ -46,7 +46,7 @@ function mainLoop() {
     updateHTML()
     data.time = Date.now()
 }
-const tabIDs = ['settings','mining','smelting','manufacturing','lab']
+const tabIDs = ['settings','mining','manufacturing','lab']
 function changeTab(i) {
     data.currentTab = i
     for(let j = 0; j < tabIDs.length; j++) {

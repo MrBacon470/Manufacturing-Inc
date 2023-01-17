@@ -9,14 +9,12 @@ function updateHTML() {
     }
     else if(data.currentTab === 1) {
         updateMiningHTML()
-    }
-    else if(data.currentTab === 2) {
         updateSmeltingHTML()
     }
-    else if(data.currentTab === 3) {
+    else if(data.currentTab === 2) {
         updateManufacturingHTML()
     }
-    else if(data.currentTab === 4) {
+    else if(data.currentTab === 3) {
         updateScienceHTML()
     }
 }
