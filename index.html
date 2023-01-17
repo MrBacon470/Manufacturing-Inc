@@ -18,6 +18,17 @@
             <button id="promptButton">Submit</button>
         </div>
     </div>
+    <div id="confirmContainer" class="modalContainer">
+        <div id="confirm" class="flexCol">
+            <h3 id="confirmTitle" style="text-align:center">Are you sure?</h3>
+            <p id="confirmContent" style="margin-bottom:1vh;text-align:center">New things have been added since last time</p>
+            <div class="flexRow">
+                <button id="noConfirm" class="redButton" style="margin-right:0.5vw">No!</button>
+                <button id="yesConfirm" class="greenButton" style="margin-left:0.5vw">Yes!</button>
+            </div>
+            <br>
+        </div>
+    </div>
     <h3 id="titleText" style="text-align:center">Manufacturing Inc - v0.0.0</h3>
     <div id="topBar" class="flexRow">
         <p id="ironIngotText"></p>
@@ -34,7 +45,7 @@
     <div id="miningTab" class="flexCol tabHolder">
         <h4>Mining</h4>
         <div id="miningHolder"></div>
-        <h4>Smelting & Refining</h4>
+        <h4>Smelting/Refining</h4>
         <div id="smeltingHolder"></div>
     </div>
     <div id="manufacturingTab" class="flexCol tabHolder">
