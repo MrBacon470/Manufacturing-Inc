@@ -94,30 +94,16 @@ button:active {
 
 .manufactoryHolder {
     border: 2px solid var(--orange);
-    height: 18em;
-    min-width: 10em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin-left: .5vw;
-    margin-right: .5vw;
     padding: 1vh 1vw 1vh 1vw;
-}
-.manufactoryHolder button, .manufactoryHolder img, .manufactoryHolder p, .manufactoryHolder div {
-    margin-bottom: 1vh; margin-top: 0%; text-align: center;
 }
 
 .progressBarBorder {border:2px solid var(--orange); height:1em;width: 100%; margin:0%;}
 .progressBar {background-color: var(--orange); height:100%; font-size: 80%;color: whitesmoke; margin:0%;text-align: center;}
 
-.manufactoryRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin:.5vw .5vh .5vw .5vh;
-}
 
 .scienceHolder {border: 2px solid var(--orange);padding:.5em;}
 
@@ -139,18 +125,6 @@ button:active {
 #navBar button, #settingsButtonHolder button {margin-left: 0.5em; margin-right: 0.5em;}
 
 #promptInput {background-color: #383738; border: 2px solid; border-radius: 2px;}
-
-#manufactoriesHolder {
-    border: 2px solid var(--white);
-    display: flex;
-    padding:2em;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width:85%;
-    height:30em;
-    overflow: scroll;
-}
 
 #topBar p {
     margin-left: 1vw;
@@ -186,20 +160,20 @@ button:active {
 .notifyjs-bootstrap-error {
     border-radius: 0px;
 	color: whitesmoke;
-	background-color: #a70202;
-	border-color: var(--red);
+	background-color: var(--red);
+	border-color: #a70202;
 }
 .notifyjs-bootstrap-success {
 	color: whitesmoke;
     border-radius: 0px;
-	background-color: #02a720;
-	border-color: var(--green);
+	background-color: var(--green);
+	border-color: #02a720;
 }
 .notifyjs-bootstrap-info {
 	color: whitesmoke;
     border-radius: 0px;
-	background-color: #0247a7;
-	border-color: var(--blue);
+	background-color: var(--blue);
+	border-color: #0247a7;
 }
 .notifyjs-bootstrap-warn {
 	color: whitesmoke;
@@ -208,4 +182,4 @@ button:active {
 	border-color: #BAB700;
 }
 .notifyjs-corner, .notifyjs-hidable , .notifyjs-container, .notifyjs-container div span 
-{ background-color: rgba(0, 0, 0, 0); color:whitesmoke;}
+{ background-color: rgba(0, 0, 0, 0); color:black;}

@@ -1,4 +1,4 @@
-const itemNames = []
+const itemNames = ['0','1']
 const itemImgIDs = []
 const itemCraftCosts = []
 const itemCraftingTimes = []

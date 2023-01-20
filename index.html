@@ -50,9 +50,7 @@
     </div>
     <div id="manufacturingTab" class="flexCol tabHolder">
         <h4>Manufacturing</h4>
-        <div id="manufactoriesHolder" class="flexCol">
-            
-        </div>
+        
     </div>
     <div id="labTab" class="flexCol tabHolder">
         <h4>The Lab</h4>
@@ -65,10 +63,10 @@
     </div>
     <div id="settingsTab" class="flexCol tabHolder" style="display: flex;">
         <div id="settingsButtonHolder" class="flexRow" style="margin-bottom:1vh">
-            <button onclick="save()">Save Game</button>
-            <button onclick="exportSave()">Export Save</button>
-            <button onclick="createPrompt('Import your save',0)">Import Save</button>
-            <button class="locked" onclick="createConfirmation('reset')">Delete Save (Exports)</button>
+            <button class="greenButton" onclick="save()">Save Game</button>
+            <button class="blueButton" onclick="exportSave()">Export Save</button>
+            <button class="blueButton" onclick="createPrompt('Import your save',0)">Import Save</button>
+            <button class="redButton" onclick="createConfirmation('reset')">Delete Save (Exports)</button>
         </div>
         <div id="settingsButtonHolder" class="flexRow" style="margin-bottom:1vh">
             <button id="setToggle0">Depletable Resources [OFF]</button>

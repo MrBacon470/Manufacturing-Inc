@@ -23,7 +23,7 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < 3; i++)
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
-    addHTML('manufactoriesHolder',itemNames.length,'mH',2)
+    addHTML('manufacturingTab',itemNames.length,'mH',2)
     for(let i = 0; i < itemNames.length; i++) {
         DOMCacheGetOrSet(`mHTitle${i}`).innerHTML = `${itemNames[i]} <br>(0 | Queued: 0)`
     }
@@ -79,25 +79,21 @@ function addHTML(target,amount,name,id) {
         }
     }
     else if(id === 2) {
-        for(let i = 0; i < amount / 5; i++) {
-            htmlStr = `<div id="mHRow${i}" class="manufactoryRow"></div>`
+        for(let i = 0; i < amount; i++) {
+            htmlStr = 
+            `<div id="mH${i}" class="manufactoryHolder">
+            <p id="mHTitle${i}">Item Name</p>
+            <img id="mHImg${i}">
+            <p id="mHCostText${i}">Item Costs</p>
+            <button id="mhButton${i}">Craft Item</button>
+            <div class="progressBarBorder">
+                <div id="mHBar${i}" class="progressBar">Time Left: 0.0s</div>
+            </div>
+            <button id="mHToggle${i}">Automated Production: ON</button>
+            </div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
-            for(let j = 0; j < 5; j++) {
-                if(j + i*5 >= amount) break
-                htmlStr = 
-                `<div id="mH${j+i*5}" class="manufactoryHolder">
-                <p id="mHTitle${j+i*5}">Item Name</p>
-                <img id="mHImg${j+i*5}">
-                <p id="mHCostText${j+i*5}">Item Costs</p>
-                <button id="mhButton${j+i*5}">Craft Item</button>
-                <div class="progressBarBorder">
-                    <div id="mHBar${j+i*5}" class="progressBar">Time Left: 0.0s</div>
-                <button id="mHToggle${j+i*5}">Automated Production: ON</button>
-                </div>
-                </div>`
-                DOMCacheGetOrSet(`mHRow${i}`).insertAdjacentHTML('beforeend',htmlStr)
-            }
         }
+               
         
     }
     else if(id === 3) {
