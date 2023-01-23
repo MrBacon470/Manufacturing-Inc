@@ -94,11 +94,18 @@ button:active {
 
 .manufactoryHolder {
     border: 2px solid var(--orange);
+    height: 18em;
+    min-width: 10em;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-left: .5vw;
+    margin-right: .5vw;
     padding: 1vh 1vw 1vh 1vw;
+}
+.manufactoryHolder button, .manufactoryHolder img, .manufactoryHolder p, .manufactoryHolder div {
+    margin-bottom: 1vh; margin-top: 0%; text-align: center;
 }
 
 .progressBarBorder {border:2px solid var(--orange); height:1em;width: 100%; margin:0%;}
@@ -112,7 +119,7 @@ button:active {
     max-width: 12em;
     height: 16em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     margin-left: .5vw;
