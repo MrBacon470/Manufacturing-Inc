@@ -24,18 +24,12 @@ function generateHTMLAndHandlers() {
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
     addHTML('manufacturingTab',itemNames.length,'mH',2)
-    for(let i = 0; i < itemNames.length; i++) {
-        DOMCacheGetOrSet(`mHTitle${i}`).innerHTML = `${itemNames[i]} <br>(0 | Queued: 0)`
-    }
-    for(let i = 0; i < itemCraftCosts.length; i++) 
-        DOMCacheGetOrSet(`mHCostText${i}`).innerHTML = `${itemCraftCosts[i]}`
+    
     
     addHTML('scienceRow',dataCardNames.length,'',3)
     for(let i = 0; i < dataCardNames.length; i++) {
-        DOMCacheGetOrSet(`scienceTitle${i}`).innerText = `${dataCardNames[i]}`
+        DOMCacheGetOrSet(`scienceText${i}`).innerText = `${dataCardNames[i]}: ${formatSci(data.scienceAmounts[i])}`
     }
-
-    generateResearchTree()
 
     console.log('Initialized Successfully')
 }
@@ -79,33 +73,14 @@ function addHTML(target,amount,name,id) {
         }
     }
     else if(id === 2) {
-        for(let i = 0; i < amount / 5; i++) {
-            htmlStr = `<div id="mHRow${i}" class="manufactoryRow"></div>`
-            DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
-            for(let j = 0; j < 5; j++) {
-                if(j + i*5 >= amount) break
-                htmlStr = 
-                `<div id="mH${j+i*5}" class="manufactoryHolder">
-                <p id="mHTitle${j+i*5}">Item Name</p>
-                <img id="mHImg${j+i*5}">
-                <p id="mHCostText${j+i*5}">Item Costs</p>
-                <button id="mhButton${j+i*5}">Craft Item</button>
-                <div class="progressBarBorder">
-                    <div id="mHBar${j+i*5}" class="progressBar">Time Left: 0.0s</div>
-                <button id="mHToggle${j+i*5}">Automated Production: ON</button>
-                </div>
-                </div>`
-                DOMCacheGetOrSet(`mHRow${i}`).insertAdjacentHTML('beforeend',htmlStr)
-            }
-        }
+        
         
     }
     else if(id === 3) {
         for(let i = 0; i < amount; i++) {
             htmlStr = `<div id="scienceHolder${i}" class="scienceHolder flexCol">
                 <img id="scienceImg${i}">
-                <h3 id="scienceTitle${i}" style="color:var(${dataCardColors[i]})">Automation Data</h3>
-                <p id="scienceText${i}">Total: 0.00</p>
+                <p id="scienceText${i}" style="color:var(${dataCardColors[i]})">Automation Data</p>
             </div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
         }

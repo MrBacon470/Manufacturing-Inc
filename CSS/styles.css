@@ -112,7 +112,7 @@ button:active {
 .progressBar {background-color: var(--orange); height:100%; font-size: 80%;color: whitesmoke; margin:0%;text-align: center;}
 
 
-.scienceHolder {border: 2px solid var(--orange);padding:.5em;}
+.scienceHolder {border: 1px solid var(--orange);padding:.25em;}
 
 .researchHolder {
     border: 2px solid var(--orange);
@@ -141,8 +141,8 @@ button:active {
 #scienceRow {align-items: center;justify-content: center;align-self: center;}
 
 #scienceRow .scienceHolder {
-    margin-left: .5vw;
-    margin-right: .5vw;
+    margin-left: .25vw;
+    margin-right: .25vw;
 }
 
 #researchTreeHolder {
