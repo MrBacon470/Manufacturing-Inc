@@ -20,7 +20,6 @@
     color: var(--white);
     font-family: 'Source Code Pro';
     align-items: center;
-    margin-top:1vh;
 }
 
 button {
@@ -92,22 +91,6 @@ button:active {
     height: 2em;
 }
 
-.manufactoryHolder {
-    border: 2px solid var(--orange);
-    height: 18em;
-    min-width: 10em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: .5vw;
-    margin-right: .5vw;
-    padding: 1vh 1vw 1vh 1vw;
-}
-.manufactoryHolder button, .manufactoryHolder img, .manufactoryHolder p, .manufactoryHolder div {
-    margin-bottom: 1vh; margin-top: 0%; text-align: center;
-}
-
 .progressBarBorder {border:2px solid var(--orange); height:1em;width: 100%; margin:0%;}
 .progressBar {background-color: var(--orange); height:100%; font-size: 80%;color: whitesmoke; margin:0%;text-align: center;}
 
@@ -125,6 +108,26 @@ button:active {
     margin-left: .5vw;
     margin-right: .5vw;
     padding: 1vh 1vw 1vh 1vw;
+}
+
+.manufactory {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--orange);
+    padding: .5em;
+    margin-bottom:.5vh;
+}
+
+.manufactory img {
+    width: 2em;
+    height: 2em;
+}
+
+.manufactory img, .manufactory p, .manufactory button {
+    margin-left:.5vw;
+    margin-right:.5vw;
 }
 
 /*ID Styling*/
@@ -162,6 +165,12 @@ button:active {
     border: 2px solid #aaaaaa;
     padding: .5em;
     margin: .5em;
+}
+
+#manufactoriesHolder {
+    border: 2px solid #aaaaaa;
+    padding: .5em;
+    overflow: scroll;
 }
 
 /*Notify Styling*/

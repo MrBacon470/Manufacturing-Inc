@@ -23,7 +23,13 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < 3; i++)
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
-    addHTML('manufacturingTab',itemNames.length,'mH',2)
+    addHTML('manufactoriesHolder',itemNames.length,'',2)
+
+    for(let i = 0; i < itemNames.length; i++) {
+        DOMCacheGetOrSet(`Item${i}Img`).src = `Imgs/${itemImgIDs[i]}`
+        DOMCacheGetOrSet(`Item${i}Name`).innerText = itemNames[i]
+        DOMCacheGetOrSet(`Item${i}Cost`).innerText = `Cost: ${itemCosts[i]}`
+    }
 
     console.log('Initialized Successfully')
 }
@@ -34,7 +40,7 @@ function mainLoop() {
     updateHTML()
     data.time = Date.now()
 }
-const tabIDs = ['settings','mining','manufacturing','lab']
+const tabIDs = ['settings','mining','manufacturing','lab','power']
 function changeTab(i) {
     data.currentTab = i
     for(let j = 0; j < tabIDs.length; j++) {
@@ -67,7 +73,17 @@ function addHTML(target,amount,name,id) {
         }
     }
     else if(id === 2) {
-        
+        for(let i = 0; i < amount; i++) {
+            htmlStr = `
+            <div id="manufactory${i}" class="manufactory">
+                <img id="Item${i}Img" src="">
+                <p id="Item${i}Name">Item Name</p>
+                <p id="Item${i}Cost">Item Cost</p>
+                <p id="Item${i}Amt">(0.00)</p>
+                <button id="Item${i}Button">Produce Item</button>
+            </div>`
+            DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
+        }
         
     }
 }
