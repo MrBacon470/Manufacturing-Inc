@@ -1,5 +1,5 @@
 const rawResourceNames = ['Hematite','Chalcopyrite','Coal','Stone']
-const rawResourceIDs = ['rawResourceText','rawResourceButton','rawResourceUpButton']
+const rawResourceIDs = ['rawResourceText','rawResourceButton','rawResourceAuto']
 
 const smeltedResourceNames = ['Iron Ingot','Copper Ingot','Stone Brick','Steel Ingot']
 const smeltedResourceIDs = ['smeltedResourceText','smeltedResourceButton']
@@ -12,7 +12,7 @@ function updateMiningHTML() {
     else {
         for(let i = 0; i < rawResourceNames.length; i++) {
             DOMCacheGetOrSet(`${rawResourceIDs[1]}${i}`).innerText = `Mine ${rawResourceNames[i]} | +1.00 (${formatSci(data.rawResourcesStored[i])})`
-            DOMCacheGetOrSet(`${rawResourceIDs[2]}${i}`).innerText = `Upgrade to MK1 Miner [LOCKED]`
+            DOMCacheGetOrSet(`${rawResourceIDs[2]}${i}`).innerText = `Automation [OFF]`
             DOMCacheGetOrSet(`${rawResourceIDs[2]}${i}`).classList = `redButton`
         }
     }

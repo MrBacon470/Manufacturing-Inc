@@ -24,11 +24,14 @@ function generateHTMLAndHandlers() {
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
     addHTML('manufactoriesHolder',itemNames.length,'',2)
+
     DOMCacheGetOrSet('Item3Name').style.color = 'var(--red)'
     for(let i = 0; i < itemNames.length; i++) {
         DOMCacheGetOrSet(`Item${i}Img`).src = `Imgs/${itemImgIDs[i]}`
         DOMCacheGetOrSet(`Item${i}Name`).innerText = itemNames[i]
         DOMCacheGetOrSet(`Item${i}Cost`).innerText = `Cost: ${itemCosts[i]}`
+        DOMCacheGetOrSet(`Item${i}Button`).addEventListener('click', () => {produceItem(i)})
+        //DOMCacheGetOrSet(`Item${i}AutoButton`).addEventListener('click', () => {toggleAuto(i)})
     }
 
     console.log('Initialized Successfully')
@@ -56,7 +59,7 @@ function addHTML(target,amount,name,id) {
             <img id="${name}Img${i}">
             <p id="${name}Text${i}"></p>
             <button id="${name}Button${i}"></button>
-            <button id="${name}UpButton${i}"></button>
+            <button id="${name}Auto${i}"></button>
          </div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
         }
@@ -81,6 +84,7 @@ function addHTML(target,amount,name,id) {
                 <p id="Item${i}Cost">Item Cost</p>
                 <p id="Item${i}Amt">(0.00)</p>
                 <button id="Item${i}Button">Produce Item</button>
+                <button id="Item${i}AutoButton">Assembly [OFF]</button>
             </div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
         }
