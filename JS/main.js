@@ -24,7 +24,7 @@ function generateHTMLAndHandlers() {
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
     addHTML('manufactoriesHolder',itemNames.length,'',2)
-
+    DOMCacheGetOrSet('Item3Name').style.color = 'var(--red)'
     for(let i = 0; i < itemNames.length; i++) {
         DOMCacheGetOrSet(`Item${i}Img`).src = `Imgs/${itemImgIDs[i]}`
         DOMCacheGetOrSet(`Item${i}Name`).innerText = itemNames[i]
