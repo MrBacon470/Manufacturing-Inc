@@ -24,12 +24,6 @@ function generateHTMLAndHandlers() {
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
 
     addHTML('manufacturingTab',itemNames.length,'mH',2)
-    
-    
-    addHTML('scienceRow',dataCardNames.length,'',3)
-    for(let i = 0; i < dataCardNames.length; i++) {
-        DOMCacheGetOrSet(`scienceText${i}`).innerText = `${dataCardNames[i]}: ${formatSci(data.scienceAmounts[i])}`
-    }
 
     console.log('Initialized Successfully')
 }
@@ -75,15 +69,6 @@ function addHTML(target,amount,name,id) {
     else if(id === 2) {
         
         
-    }
-    else if(id === 3) {
-        for(let i = 0; i < amount; i++) {
-            htmlStr = `<div id="scienceHolder${i}" class="scienceHolder flexCol">
-                <img id="scienceImg${i}">
-                <p id="scienceText${i}" style="color:var(${dataCardColors[i]})">Automation Data</p>
-            </div>`
-            DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
-        }
     }
 }
 

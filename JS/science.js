@@ -1,9 +1,22 @@
 const dataCardNames = ['Automation Data','Logistics Data','Chemical Data','Utilization Data','Productivity Data','Rocketry Data']
 const dataCardColors = ['--red','--green','--blue','--yellow','--purple','--white2']
+const rarityNames = ['Common','Uncommon','Rare','Epic','Legendary','Mythic']
+const rarityColors = ['--white2','--green','--blue','--purple','--yellow','--red']
 //In the Future Add the Science Packs from SE (Biological, Material, Astronomical, Energy & Deep Space I-IV)
 //Maybe also Advanced, Singularity and Optimization from K2
-const researchObjs = [
-   
+const permanentPerks = [
+    {
+        name: 'Mark I Electric Miners',
+        desc: 'Slow & Basic but better than nothing',
+        tier: 1
+    }
+]
+
+const randomPerks = [
+    {
+        name: 'Mining Productivity',
+
+    }
 ]
 
 function generateResearchTree() {
@@ -11,7 +24,9 @@ function generateResearchTree() {
 }
 
 function updateScienceHTML() {
-   
+    for(let i = 0; i < dataCardNames.length; i++) {
+        DOMCacheGetOrSet(`dataText${i}`).innerText = `${dataCardNames[i]}: ${formatSci(data.scienceAmounts[i])}`
+    }
 }
 
 function researchItem(i) {

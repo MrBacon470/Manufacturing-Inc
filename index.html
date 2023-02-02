@@ -54,9 +54,50 @@
     </div>
     <div id="labTab" class="flexCol tabHolder">
         <h4>The Lab</h4>
-        <div id="scienceRow" class="flexRow">
-            
+        <div id="labHolder" class="flexRow">
+            <div class="flexCol">
+                <h4>Data Amounts</h4>
+                <p id="dataText0" style="color:var(--red)">Automation Data: 0</p>
+                <p id="dataText1" style="color:var(--green)">Science Data: 0</p>
+                <p id="dataText2" style="color:var(--blue)">Engineering Data: 0</p>
+                <p id="dataText3" style="color:var(--yellow)">Mathematics Data: 0</p>
+                <p id="dataText4" style="color:var(--purple)">Mathematics Data: 0</p>
+                <p id="dataText5" style="color:var(--white2)">Mathematics Data: 0</p>
+            </div>
+            <div>
+                <h3 id="currentTierText">Research Tier - I</h3>
+                <div id="nextTierHolder">
+                    <p id="nextTierText">Next Tier => II</p>
+                    <p id="nextTierCostText">Cost: 100 Automation Data</p>
+                    <p id="nextTierUnlockText">Unlocks: 3 Perks (Chances: 75% Common, 25% UnCommon)</p>
+                    <button id="tierUpButton">Increase Tier!</button>
+                </div>
+                <span id="nextTierRewardsHolder" class="flexRow">
+                    <div id="perkHolder1">
+                        <h4 id="perkName1">Perk Name</h4>
+                        <p id="perkDesc1">Perk Description</p>
+                        <button id="perkButton1">Pick Perk!</button>
+                    </div>
+                    <div id="perkHolder2">
+                        <h4 id="perkName2">Perk Name</h4>
+                        <p id="perkDesc2">Perk Description</p>
+                        <button id="perkButton2">Pick Perk!</button>
+                    </div>
+                    <div id="perkHolder3">
+                        <h4 id="perkName3">Perk Name</h4>
+                        <p id="perkDesc3">Perk Description</p>
+                        <button id="perkButton3">Pick Perk!</button>
+                    </div>
+                </span>
+            </div>
+            <div class="flexCol">
+                <h4>Perks List</h4>
+            </div>
         </div>
+        
+        
+            
+            
     </div>
     <div id="settingsTab" class="flexCol tabHolder" style="display: flex;">
         <div id="settingsButtonHolder" class="flexRow" style="margin-bottom:1vh">

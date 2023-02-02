@@ -152,6 +152,18 @@ button:active {
     padding:.25em;
 }
 
+#labHolder {
+    border: 2px solid var(--orange);
+    padding: 1em;
+    text-align: center;
+}
+
+#labHolder div {
+    border: 2px solid #aaaaaa;
+    padding: .5em;
+    margin: .5em;
+}
+
 /*Notify Styling*/
 .notifyjs-bootstrap-base {
 	font-weight: bold;
