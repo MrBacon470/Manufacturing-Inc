@@ -19,9 +19,11 @@ function generateHTMLAndHandlers() {
         DOMCacheGetOrSet(`rawResourceButton${i}`).addEventListener('click',() => mineOre(i))
     //Add Smelted Resource Holders    
     addHTML('smeltingHolder',3,'smeltedResource',1)
-    
-    for(let i = 0; i < 3; i++)
+    imgSrcs = ['ironIngot.png','copperIngot.png','stoneBrick.png']
+    for(let i = 0; i < imgSrcs.length; i++) {
+        DOMCacheGetOrSet(`smeltedResourceImg${i}`).src = `Imgs/${imgSrcs[i]}`
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
+    }
 
     addHTML('manufactoriesHolder',itemNames.length,'',2)
 

@@ -1,5 +1,5 @@
 const itemNames = ['Copper Plate','Iron Plate','Iron Gear','Automation Data Creation']
-const itemImgIDs = ['','','','autoData.png']
+const itemImgIDs = ['copperPlate.png','ironPlate.png','ironGear.png','autoData.png']
 const itemCosts = ['1 Copper Ingot','1 Iron Ingot','1 Iron Plate','4 Copper Plates + 2 Iron Gears']
 
 function updateManufacturingHTML() {
