@@ -173,6 +173,21 @@ button:active {
     overflow: scroll;
 }
 
+#powerHolder {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: .5em;
+    border: 2px solid var(--orange);
+}
+
+#powerHolder div {
+    margin-left: .5em;
+    margin-right: .5em;
+    border: 2px solid #aaaaaa;
+    padding: .5em;
+}
+
 /*Notify Styling*/
 .notifyjs-bootstrap-base {
 	font-weight: bold;
