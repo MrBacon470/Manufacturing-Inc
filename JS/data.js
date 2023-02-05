@@ -9,6 +9,7 @@ function getDefaultObject() {
         smeltedResourcesStored: new Array(4).fill(D(0)),
         manufacturedItems: new Array(4).fill(D(0)),
         researchTier: D(0),
+        perkLevels: new Array(1).fill({level: D(0), boost: D(1)}),
         settingsToggles: [false],
         buyAmounts: [],
         currentUpdate: 'v0.0.3',

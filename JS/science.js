@@ -6,8 +6,8 @@ const rarityColors = ['--white2','--green','--blue','--purple','--yellow','--red
 //Maybe also Advanced, Singularity and Optimization from K2
 const permanentPerks = [
     {
-        name: 'Mark I Electric Miners',
-        desc: 'Slow & Basic but better than nothing',
+        name: 'Electric Miners',
+        desc: 'Hey you wanted automation, right?',
         tier: 1
     }
 ]
@@ -15,6 +15,9 @@ const permanentPerks = [
 const randomPerks = [
     {
         name: 'Mining Productivity',
+        desc: 'Boosts mining output',
+    },
+    {
 
     }
 ]
