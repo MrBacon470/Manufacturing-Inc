@@ -9,6 +9,11 @@ function generateHTMLAndHandlers() {
         DOMCacheGetOrSet(`tabBut${i}`).addEventListener('click', () => { changeTab(i) })
     //Add Resource Holders for Raw Resources
     addHTML('miningHolder',4,'rawResource',0)
+    for(let i = 0; i < getDefaultObject().rawResourcesStored.length; i++) {
+        DOMCacheGetOrSet(`rawResource${i}AutoButton`).innerHTML = `Automation [${data.miningAuto[i]?'ON':'OFF'}]`
+        DOMCacheGetOrSet(`rawResource${i}AutoButton`).addEventListener('click',() => {toggleAuto(0,i)})
+    }
+
     
     let imgSrcs = ['ironOre.png','copperOre.png','coal.png','stone.png']
     //Update Raw Resource Image Sources
@@ -23,9 +28,12 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < imgSrcs.length; i++) {
         DOMCacheGetOrSet(`smeltedResourceImg${i}`).src = `Imgs/${imgSrcs[i]}`
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
+        DOMCacheGetOrSet(`smeltedResource${i}AutoButton`).innerHTML = `Automation [${data.smeltingAuto[i]?'ON':'OFF'}]`
+        DOMCacheGetOrSet(`smeltedResource${i}AutoButton`).addEventListener('click',() => {toggleAuto(1,i)})
     }
 
     addHTML('manufactoriesHolder',itemNames.length,'',2)
+
 
     DOMCacheGetOrSet('Item3Name').style.color = 'var(--red)'
     for(let i = 0; i < itemNames.length; i++) {
@@ -33,7 +41,14 @@ function generateHTMLAndHandlers() {
         DOMCacheGetOrSet(`Item${i}Name`).innerText = itemNames[i]
         DOMCacheGetOrSet(`Item${i}Cost`).innerText = `Cost: ${itemCosts[i]}`
         DOMCacheGetOrSet(`Item${i}Button`).addEventListener('click', () => {produceItem(i)})
-        //DOMCacheGetOrSet(`Item${i}AutoButton`).addEventListener('click', () => {toggleAuto(i)})
+        DOMCacheGetOrSet(`Item${i}AutoButton`).innerHTML = `Automation [${data.manufacturingAuto[i]?'ON':'OFF'}]`
+        DOMCacheGetOrSet(`Item${i}AutoButton`).addEventListener('click',() => {toggleAuto(2,i)})
+    }
+
+    DOMCacheGetOrSet('tierUpButton').addEventListener('click',() => {increaseTier()})
+    for(let i = 0; i < 3; i++) {
+        DOMCacheGetOrSet(`perkButton${i+1}`).addEventListener('click',() => {selectPerk(i)})
+        
     }
 
     console.log('Initialized Successfully')
@@ -45,7 +60,7 @@ function mainLoop() {
     updateHTML()
     data.time = Date.now()
 }
-const tabIDs = ['settings','mining','manufacturing','lab','power']
+const tabIDs = ['settings','mining','manufacturing','lab']
 function changeTab(i) {
     data.currentTab = i
     for(let j = 0; j < tabIDs.length; j++) {
@@ -61,7 +76,7 @@ function addHTML(target,amount,name,id) {
             <img id="${name}Img${i}">
             <p id="${name}Text${i}"></p>
             <button id="${name}Button${i}"></button>
-            <button id="${name}Auto${i}"></button>
+            <button id="${name}${i}AutoButton"></button>
          </div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
         }
@@ -73,6 +88,7 @@ function addHTML(target,amount,name,id) {
             <img id="${name}Img${i}">
             <p id="${name}Text${i}"></p>
             <button id="${name}Button${i}"></button>
+            <button id="${name}${i}AutoButton"></button>
             </div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
         }
@@ -86,7 +102,7 @@ function addHTML(target,amount,name,id) {
                 <p id="Item${i}Cost">Item Cost</p>
                 <p id="Item${i}Amt">(0.00)</p>
                 <button id="Item${i}Button">Produce Item</button>
-                <button id="Item${i}AutoButton">Assembly [OFF]</button>
+                <button id="Item${i}AutoButton">Automation [OFF]</button>
             </div>`
             DOMCacheGetOrSet(target).insertAdjacentHTML('beforeend',htmlStr)
         }
@@ -181,6 +197,10 @@ function formatPrefix(a,b) {
     else {
         return `${formatSci(a.divide(amts[index]))} ${prefixes[index]}${b.toLowerCase()}`
     }
+}
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
 }
 
 window.setInterval(function() {

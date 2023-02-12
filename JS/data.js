@@ -9,7 +9,11 @@ function getDefaultObject() {
         smeltedResourcesStored: new Array(4).fill(D(0)),
         manufacturedItems: new Array(4).fill(D(0)),
         researchTier: D(0),
-        perkLevels: new Array(1).fill({level: D(0), boost: D(1)}),
+        pickPerkMode: false,
+        perkBoosts: new Array(4).fill(D(1)),
+        miningAuto: new Array(4).fill(false),
+        smeltingAuto: new Array(4).fill(false),
+        manufacturingAuto: new Array(4).fill(false),
         settingsToggles: [false],
         buyAmounts: [],
         currentUpdate: 'v0.0.3',
@@ -89,6 +93,7 @@ window.onload = function (){
     changeTab(data.currentTab)
     $.notify('Game Loaded','info')
     DOMCacheGetOrSet('titleText').innerText = `Manufacturing Inc - ${getDefaultObject().currentUpdate}`
+    updateScienceHTMLStart()
 }
 //full reset
 function fullReset(){

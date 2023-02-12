@@ -6,15 +6,8 @@ const smeltedResourceIDs = ['smeltedResourceText','smeltedResourceButton']
 const smeltedResourceReqs = [D(2),D(2),D(2),D(10)]
 
 function updateMiningHTML() {
-    if(data.settingsToggles[0]) {
-
-    }
-    else {
-        for(let i = 0; i < rawResourceNames.length; i++) {
-            DOMCacheGetOrSet(`${rawResourceIDs[1]}${i}`).innerText = `Mine ${rawResourceNames[i]} | +1.00 (${formatSci(data.rawResourcesStored[i])})`
-            DOMCacheGetOrSet(`${rawResourceIDs[2]}${i}`).innerText = `Automation [OFF]`
-            DOMCacheGetOrSet(`${rawResourceIDs[2]}${i}`).classList = `redButton`
-        }
+    for(let i = 0; i < rawResourceNames.length; i++) {
+        DOMCacheGetOrSet(`${rawResourceIDs[1]}${i}`).innerText = `Mine ${rawResourceNames[i]} | +1.00 (${formatSci(data.rawResourcesStored[i])})`
     }
 }
 

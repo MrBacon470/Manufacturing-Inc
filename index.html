@@ -40,7 +40,6 @@
     <div id="navBar" class="flexRow">
         <button id="tabBut1">Mining & Smelting</button>
         <button id="tabBut2">Manufacturing</button>
-        <button id="tabBut4">Reactor</button>
         <button id="tabBut3">Science Lab</button>
         <button id="tabBut0">Settings</button>
     </div>
@@ -80,22 +79,29 @@
                     <div id="perkHolder1">
                         <h4 id="perkName1">Perk Name</h4>
                         <p id="perkDesc1">Perk Description</p>
+                        <p id="perkRarity1">Perk Rarity</p>
                         <button id="perkButton1">Pick Perk!</button>
                     </div>
                     <div id="perkHolder2">
                         <h4 id="perkName2">Perk Name</h4>
                         <p id="perkDesc2">Perk Description</p>
+                        <p id="perkRarity2">Perk Rarity</p>
                         <button id="perkButton2">Pick Perk!</button>
                     </div>
                     <div id="perkHolder3">
                         <h4 id="perkName3">Perk Name</h4>
                         <p id="perkDesc3">Perk Description</p>
+                        <p id="perkRarity3">Perk Rarity</p>
                         <button id="perkButton3">Pick Perk!</button>
                     </div>
                 </span>
             </div>
             <div class="flexCol">
                 <h4>Perks List</h4>
+                <p id="perkText0">Mining Productivity</p>
+                <p id="perkText1">Mining Productivity</p>
+                <p id="perkText2">Mining Productivity</p>
+                <p id="perkText3">Mining Productivity</p>
             </div>
         </div>
     </div>
@@ -106,7 +112,7 @@
             <button class="blueButton" onclick="createPrompt('Import your save',0)">Import Save</button>
             <button class="redButton" onclick="createConfirmation('reset')">Delete Save (Exports)</button>
         </div>
-        <div id="settingsButtonHolder" class="flexRow" style="margin-bottom:1vh">
+        <div id="settingsButtonHolder" class="flexRow" style="margin-bottom:1vh; display:none">
             <button id="setToggle0">Depletable Resources [OFF]</button>
         </div>
         <a style="margin-bottom:1vh" href="https://discord.com/invite/JkQUnubuhx">Discord Link!</a>

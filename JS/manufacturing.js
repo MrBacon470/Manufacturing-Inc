@@ -1,6 +1,6 @@
-const itemNames = ['Copper Plate','Iron Plate','Iron Gear','Automation Data Creation']
-const itemImgIDs = ['copperPlate.png','ironPlate.png','ironGear.png','autoData.png']
-const itemCosts = ['1 Copper Ingot','1 Iron Ingot','1 Iron Plate','4 Copper Plates + 2 Iron Gears']
+const itemNames = ['Copper Plate','Iron Plate','Iron Gear','Automation Data Creation','Copper Wire','Electronic Circuit']
+const itemImgIDs = ['copperPlate.png','ironPlate.png','ironGear.png','autoData.png','copperWire.png','greenChip.png']
+const itemCosts = ['1 Copper Ingot','1 Iron Ingot','1 Iron Plate','4 Copper Plates + 2 Iron Gears','1 Copper Plate','1 Copper Wire + 1 Iron Plate']
 
 function updateManufacturingHTML() {
     for(let i = 0; i < itemNames.length; i++) {
@@ -10,6 +10,8 @@ function updateManufacturingHTML() {
     DOMCacheGetOrSet(`Item1Button`).classList = data.smeltedResourcesStored[0].gte(1) ? 'greenButton' : 'redButton'
     DOMCacheGetOrSet(`Item2Button`).classList = data.manufacturedItems[1].gte(1) ? 'greenButton' : 'redButton'
     DOMCacheGetOrSet(`Item3Button`).classList = data.manufacturedItems[0].gte(4) && data.manufacturedItems[2].gte(2) ? 'greenButton' : 'redButton'
+    DOMCacheGetOrSet(`Item4Button`).classList = data.manufacturedItems[0].gte(1) ? 'greenButton' : 'redButton'
+    DOMCacheGetOrSet(`Item5Button`).classList = data.manufacturedItems[1].gte(1) && data.manufacturedItems[4].gte(1) ? 'greenButton' : 'redButton'
 }
 
 function produceItem(i) {
