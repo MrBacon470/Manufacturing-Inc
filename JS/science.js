@@ -157,6 +157,7 @@ function canAffordNextTier() {
 }
 
 function increaseTier() {
+    if(data.researchTier.gte(10)) return
     if(!canAffordNextTier()) return
     if(getNextTierUnlockText().includes('Unlocks: 3 Random Perks')) {
         data.pickPerkMode = true
