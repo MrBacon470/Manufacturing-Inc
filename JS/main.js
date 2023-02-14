@@ -53,9 +53,13 @@ function generateHTMLAndHandlers() {
 
     console.log('Initialized Successfully')
 }
-
+let timer = 0;
 function mainLoop() {
     diff = (Date.now()-data.time)*data.devSpeed/1000
+    if(timer >= 1) {
+        runAutos()
+        timer = 0;
+    }
     
     updateHTML()
     data.time = Date.now()

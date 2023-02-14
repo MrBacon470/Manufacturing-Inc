@@ -20,5 +20,18 @@ function toggleAuto(i,j) {
 }
 
 function runAutos() {
-    
+    for(let i = 0; i < data.miningAuto.length; i++) {
+        if(data.miningAuto[i]) {
+            if(data.researchTier.gte(1)) {
+                data.rawResourcesStored[i] = data.rawResourcesStored[i].add(D(0.5).times(timer))
+            }
+        }
+    }
+
+    for(let i = 0; i < data.smeltingAuto.length; i++) {
+        if(data.smeltingAuto[i]) {
+            smelt(i)
+        }
+    }
+        
 }
