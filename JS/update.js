@@ -24,6 +24,10 @@ function updateHTML() {
             DOMCacheGetOrSet(`manufactory${i}`).style.display = data.researchTier.gte(4) ? 'flex' : 'none'
             DOMCacheGetOrSet(`Item${i}AutoButton`).style.display = 'none'
         }
+        for(let i = 6; i < 10; i++) {
+            DOMCacheGetOrSet(`manufactory${i}`).style.display = data.researchTier.gte(10) ? 'flex' : 'none'
+            DOMCacheGetOrSet(`Item${i}AutoButton`).style.display = 'none'
+        }
             
     }
     else if(data.currentTab === 3) {

@@ -132,6 +132,7 @@ function getNextTierUnlockText() {
 
 function updateScienceHTML() {
     DOMCacheGetOrSet(`dataText0`).innerText = `${dataCardNames[0]}: ${formatSci(data.manufacturedItems[3])}`
+    DOMCacheGetOrSet(`dataText1`).innerText = `${dataCardNames[1]}: ${formatSci(data.manufacturedItems[9])}`
     for(let i = 2; i < dataCardNames.length; i++) {
         DOMCacheGetOrSet(`dataText${i}`).innerText = ``
     }
