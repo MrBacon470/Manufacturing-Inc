@@ -23,8 +23,8 @@ function generateHTMLAndHandlers() {
     for(let i = 0; i < getDefaultObject().rawResourcesStored.length; i++)
         DOMCacheGetOrSet(`rawResourceButton${i}`).addEventListener('click',() => mineOre(i))
     //Add Smelted Resource Holders    
-    addHTML('smeltingHolder',3,'smeltedResource',1)
-    imgSrcs = ['ironIngot.png','copperIngot.png','stoneBrick.png']
+    addHTML('smeltingHolder',4,'smeltedResource',1)
+    imgSrcs = ['ironIngot.png','copperIngot.png','stoneBrick.png','steelIngot.png']
     for(let i = 0; i < imgSrcs.length; i++) {
         DOMCacheGetOrSet(`smeltedResourceImg${i}`).src = `Imgs/${imgSrcs[i]}`
         DOMCacheGetOrSet(`smeltedResourceButton${i}`).addEventListener('click', () => {smelt(i)})
@@ -36,6 +36,7 @@ function generateHTMLAndHandlers() {
 
 
     DOMCacheGetOrSet('Item3Name').style.color = 'var(--red)'
+    DOMCacheGetOrSet('Item9Name').style.color = 'var(--green)'
     for(let i = 0; i < itemNames.length; i++) {
         DOMCacheGetOrSet(`Item${i}Img`).src = `Imgs/${itemImgIDs[i]}`
         DOMCacheGetOrSet(`Item${i}Name`).innerText = itemNames[i]
@@ -59,6 +60,7 @@ function generateHTMLAndHandlers() {
 let timer = 0;
 function mainLoop() {
     diff = (Date.now()-data.time)*data.devSpeed/1000
+    timer += diff
     if(timer >= 1) {
         runAutos()
         timer = 0;
