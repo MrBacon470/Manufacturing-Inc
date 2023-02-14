@@ -20,8 +20,11 @@ function updateHTML() {
         updateManufacturingHTML()
         for(let i = 0; i < 4; i++) 
             DOMCacheGetOrSet(`Item${i}AutoButton`).style.display = data.researchTier.gte(9) ? 'block' : 'none'
-        for(let i = 4; i < 6; i++) 
+        for(let i = 4; i < 6; i++) {
+            DOMCacheGetOrSet(`manufactory${i}`).style.display = data.researchTier.gte(4) ? 'flex' : 'none'
             DOMCacheGetOrSet(`Item${i}AutoButton`).style.display = 'none'
+        }
+            
     }
     else if(data.currentTab === 3) {
         updateScienceHTML()
