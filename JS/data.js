@@ -10,6 +10,8 @@ function getDefaultObject() {
         manufacturedItems: new Array(4).fill(D(0)),
         researchTier: D(0),
         pickPerkMode: false,
+        perkIDs: new Array(3).fill(0),
+        perkRarities: new Array(3).fill(0),
         perkBoosts: new Array(4).fill(D(1)),
         miningAuto: new Array(4).fill(false),
         smeltingAuto: new Array(4).fill(false),

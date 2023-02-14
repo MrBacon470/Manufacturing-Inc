@@ -1,8 +1,6 @@
 const dataCardNames = ['Automation Data','Logistics Data','Chemical Data','Utilization Data','Productivity Data','Rocketry Data']
 const dataCardColors = ['--red','--green','--blue','--yellow','--purple','--white2']
 const researchCap = D(10)
-let perkIDs = [0,0,0]
-let perkRarities = [0,0,0]
 //In the Future Add the Science Packs from SE (Biological, Material, Astronomical, Energy & Deep Space I-IV)
 //Maybe also Advanced, Singularity and Optimization from K2
 
@@ -163,12 +161,12 @@ function increaseTier() {
         data.pickPerkMode = true
         updateScienceHTML()
         for(let i = 0; i < 3; i++) {
-            perkIDs[i] = getRndInteger(0, randomPerks.length-1)
-            perkRarities[i] = pickRarity()
-            DOMCacheGetOrSet(`perkHolder${i+1}`).style.border = `2px solid var(${rarityObjs[perkRarities[i]].color})`
-            DOMCacheGetOrSet(`perkName${i+1}`).innerText = `${randomPerks[perkIDs[i]].name}`
-            DOMCacheGetOrSet(`perkDesc${i+1}`).innerText = `${randomPerks[perkIDs[i]].desc}`
-            DOMCacheGetOrSet(`perkRarity${i+1}`).innerText = `[${rarityObjs[perkRarities[i]].name}]\n+${formatSci(rarityObjs[perkRarities[i]].boost*100)}% Boost`
+            data.perkIDs[i] = getRndInteger(0, randomPerks.length-1)
+            data.perkRarities[i] = pickRarity()
+            DOMCacheGetOrSet(`perkHolder${i+1}`).style.border = `2px solid var(${rarityObjs[data.perkRarities[i]].color})`
+            DOMCacheGetOrSet(`perkName${i+1}`).innerText = `${randomPerks[data.perkIDs[i]].name}`
+            DOMCacheGetOrSet(`perkDesc${i+1}`).innerText = `${randomPerks[data.perkIDs[i]].desc}`
+            DOMCacheGetOrSet(`perkRarity${i+1}`).innerText = `[${rarityObjs[data.perkRarities[i]].name}]\n+${formatSci(rarityObjs[data.perkRarities[i]].boost*100)}% Boost`
         }
     }
     else {
@@ -181,7 +179,7 @@ function increaseTier() {
   
 function selectPerk(i) {
     if(!data.pickPerkMode) return
-    data.perkBoosts[perkIDs[i]] = data.perkBoosts[perkIDs[i]].add(rarityObjs[perkRarities[i]].boost)
+    data.perkBoosts[data.perkIDs[i]] = data.perkBoosts[data.perkIDs[i]].add(rarityObjs[data.perkRarities[i]].boost)
     data.pickPerkMode = false
     updateScienceHTML()
 }
