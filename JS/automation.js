@@ -18,3 +18,7 @@ function toggleAuto(i,j) {
             break
     }
 }
+
+function runAutos() {
+    
+}

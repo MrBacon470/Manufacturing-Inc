@@ -13,7 +13,7 @@ function getDefaultObject() {
         perkBoosts: new Array(4).fill(D(1)),
         miningAuto: new Array(4).fill(false),
         smeltingAuto: new Array(4).fill(false),
-        manufacturingAuto: new Array(4).fill(false),
+        manufacturingAuto: new Array(6).fill(false),
         settingsToggles: [false],
         buyAmounts: [],
         currentUpdate: 'v0.0.3',

@@ -10,9 +10,18 @@ function updateHTML() {
     else if(data.currentTab === 1) {
         updateMiningHTML()
         updateSmeltingHTML()
+        for(let i = 0; i < data.miningAuto.length; i++)
+            DOMCacheGetOrSet(`rawResource${i}AutoButton`).style.display = data.researchTier.gte(1) ? 'block' : 'none'
+        for(let i = 0; i < 2; i++)
+            DOMCacheGetOrSet(`smeltedResource${i}AutoButton`).style.display = data.researchTier.gte(2) ? 'block' : 'none'
+        DOMCacheGetOrSet(`smeltedResource2AutoButton`).style.display = 'none'
     }
     else if(data.currentTab === 2) {
         updateManufacturingHTML()
+        for(let i = 0; i < 4; i++) 
+            DOMCacheGetOrSet(`Item${i}AutoButton`).style.display = data.researchTier.gte(9) ? 'block' : 'none'
+        for(let i = 4; i < 6; i++) 
+            DOMCacheGetOrSet(`Item${i}AutoButton`).style.display = 'none'
     }
     else if(data.currentTab === 3) {
         updateScienceHTML()

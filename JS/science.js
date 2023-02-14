@@ -48,7 +48,7 @@ const rarityObjs = [
 const researches = [
     {
         name: 'Electric Miners Mk1',
-        desc: 'Slow but better than doing it by hand',
+        desc: 'Slow but better than doing it by hand (0.5 Ore/s)',
         tier: D(1)
     },
     {
