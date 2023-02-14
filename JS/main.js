@@ -48,7 +48,10 @@ function generateHTMLAndHandlers() {
     DOMCacheGetOrSet('tierUpButton').addEventListener('click',() => {increaseTier()})
     for(let i = 0; i < 3; i++) {
         DOMCacheGetOrSet(`perkButton${i+1}`).addEventListener('click',() => {selectPerk(i)})
-        
+        DOMCacheGetOrSet(`perkHolder${i+1}`).style.border = `2px solid var(${rarityObjs[data.perkRarities[i]].color})`
+        DOMCacheGetOrSet(`perkName${i+1}`).innerText = `${randomPerks[data.perkIDs[i]].name}`
+        DOMCacheGetOrSet(`perkDesc${i+1}`).innerText = `${randomPerks[data.perkIDs[i]].desc}`
+        DOMCacheGetOrSet(`perkRarity${i+1}`).innerText = `[${rarityObjs[data.perkRarities[i]].name}]\n+${formatSci(rarityObjs[data.perkRarities[i]].boost*100)}% Boost`
     }
 
     console.log('Initialized Successfully')
