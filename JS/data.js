@@ -18,7 +18,7 @@ function getDefaultObject() {
         manufacturingAuto: new Array(10).fill(false),
         settingsToggles: [false],
         buyAmounts: [],
-        currentUpdate: 'v0.0.3',
+        currentUpdate: 'v0.0.4',
         devSpeed: 1,
     }
 }

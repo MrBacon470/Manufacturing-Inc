@@ -12,6 +12,7 @@ function updateMiningHTML() {
 }
 
 function updateSmeltingHTML() {
+    DOMCacheGetOrSet('smeltedResourceHolder3').style.display='none'
     for(let i = 0; i < smeltedResourceNames.length-1; i++) {
             DOMCacheGetOrSet(`${smeltedResourceIDs[0]}${i}`).innerText = `${smeltedResourceNames[i]} Smelter (${formatSci(data.smeltedResourcesStored[i])})`
         if(i !== 2) {

@@ -93,7 +93,7 @@ function addHTML(target,amount,name,id) {
     else if(id === 1) {
         for(let i = 0; i < amount; i++) {
             htmlStr = 
-            `<div class="resourceHolder">
+            `<div id="${name}Holder${i}" class="resourceHolder">
             <img id="${name}Img${i}">
             <p id="${name}Text${i}"></p>
             <button id="${name}Button${i}"></button>
